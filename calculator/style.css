@@ -1,0 +1,72 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    font-family: Gotham Rounded, sans-serif;
+    color: #fff;
+    font-weight: normal;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(to right, #A8A9AD, #E3E3E3);
+}
+
+.calculator-grid {
+    display: grid;
+
+    /* makes everything centered (not vertically) */
+    justify-content: center;
+    align-content: center;
+
+    /* Fills 100% of the height all the time */
+    min-height: 100vh;
+
+    grid-template-columns: repeat(4, 100px);
+
+    /* makes it as large as it needs to be to fit anything */
+    grid-template-rows: minmax(120px, auto) repeat(5, 100px);
+}
+
+.calculator-grid > button {
+    cursor: pointer;
+    font-size: 2rem;
+    border: 1px solid white;
+    outline: none;
+
+    /* the .75 makes it slightly opaque */
+    background-color: rgba(71, 71, 71, .6);
+}
+
+.calculator-grid > button:hover {
+    /* changes color/opacity when you hover over it */
+    background-color: rgba(71, 71, 71, 0.7);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.output {
+    grid-column: 1 / -1;
+    background-color: rgba(0, 0, 0, .5);
+    display: flex;
+    align-items: flex-end;
+
+    /* puts as much space between elements as much as possible */
+    justify-content: space-around;
+
+    flex-direction: column;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+}
+
+.output .previous-operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.5rem;
+}
+
+.output .current-operand {
+    color: #fff;
+    font-size: 2.5rem;
+}
